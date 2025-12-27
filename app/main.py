@@ -21,7 +21,11 @@ app.include_router(user.router)
 app.include_router(auth.router)
 app.include_router(vote.router)
 
+
 @app.get("/")
 def read_root():
     return {"data": "Hello Nimaa, Your Bua Loves You..."}
 
+@app.head("/") 
+def head_root(): 
+    return {"status": "ok"}
