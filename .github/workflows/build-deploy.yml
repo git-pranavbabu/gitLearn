@@ -53,11 +53,12 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-      
     needs: build
     environment: 
       name: testing
     steps:
-      - name: Deploy
+      - name: Trigger Render Deploy
         run: |
-          echo "Deploying"
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+            https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys
