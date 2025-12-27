@@ -32,7 +32,7 @@ def test_get_one_post(authorized_client, test_posts):
     assert post.content == test_posts[0].content
     assert post.title == test_posts[0].title
     assert res.status_code == 200
-
+#
 @pytest.mark.parametrize("title, content, published", [
     ("awesome new title", "awesome new content", True),
     ("favorite pizza", "i love pepperoni", False),
