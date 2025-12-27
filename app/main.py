@@ -23,5 +23,5 @@ app.include_router(vote.router)
 
 @app.get("/")
 def read_root():
-    return {"data": "Hello World"}
+    return {"data": "Hello Nimaa, Your Bua Loves You..."}
 
