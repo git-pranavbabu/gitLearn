@@ -22,7 +22,7 @@ def read_votes(db: Session = Depends(database.get_db)):
 
     
 
-@router.post("/")
+@router.post("/", status_code=status.HTTP_201_CREATED)
 def vote(vote: schemas.Vote, db: Session = Depends(database.get_db), current_user: models.User = Depends(oauth2.get_current_user)):
     post = db.query(models.Post).filter(models.Post.id == vote.post_id).first() 
     if not post:

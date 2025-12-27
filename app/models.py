@@ -10,7 +10,7 @@ class Post(Base):
     content = Column(String, nullable=False)
     published = Column(Boolean, server_default=text('true'), nullable=False)
     rating = Column(Integer, nullable=True, server_default=text('0'))
-    created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text('now()'))
+    created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text('CURRENT_TIMESTAMP'))
     user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
 
     user = relationship("User", back_populates="posts")
@@ -24,7 +24,7 @@ class User(Base):
     email = Column(String, nullable=False, unique=True)
     password = Column(String, nullable=False)
     phone_number = Column(String, nullable=True)
-    created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text('now()'))
+    created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text('CURRENT_TIMESTAMP'))
     posts = relationship("Post", back_populates="user", passive_deletes=True)
     votes = relationship("Vote", back_populates="user", passive_deletes=True)
 

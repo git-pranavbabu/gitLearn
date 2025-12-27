@@ -21,7 +21,7 @@ class ResponseUser(BaseModel):
     class Config:
         from_attributes = True
 
-class ResponsePost(BaseModel):
+class ResponsePost(PostBase):
     id: int
     created_at: datetime
     user_id: int

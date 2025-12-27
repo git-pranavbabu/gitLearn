@@ -4,7 +4,6 @@ from ..database import get_db
 from sqlalchemy.orm import Session
 from typing import List
 
-
 router = APIRouter(
     tags=["Users"],
     prefix="/users"
